@@ -8,7 +8,10 @@ from authlib.integrations.requests_client import OAuth2Session
 oauth2_session = OAuth2Session(
     client_id=settings.UIP_CLIENT_ID, client_secret=settings.UIP_CLIENT_SECRET, scope=settings.UIP_SCOPE
 )
+
 uipclient_config = Configuration()
+uipclient_config.host = f"https://cloud.uipath.com/{settings.UIP_LOGICAL_NAME}/{settings.UIP_TENANT}/orchestrator_"
+
 
 def FetchUIPathToken(uipclient_config=uipclient_config):
     """Fetch UIPath Access Token.
@@ -30,6 +33,8 @@ def FetchUIPathToken(uipclient_config=uipclient_config):
 
 # On application startup, we'll get a new token and add it to uipath api configuration to get everything ready
 FetchUIPathToken()
+
+
 
 
 uipclient_folders = UIPathAPI.FoldersApi(ApiClient(uipclient_config))
