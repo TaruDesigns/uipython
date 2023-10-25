@@ -26,4 +26,6 @@ UIP_CLIENT_ID: str = "YOUR CLIENT ID"
 UIP_CLIENT_SECRET: str = "YOUR SECRET""
 ``` 
 
+Remember to check  `config/settings.py` and set your account logical name and tenant.
+
 Modify and run main.py as needed

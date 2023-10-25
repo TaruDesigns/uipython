@@ -10,7 +10,7 @@ oauth2_session = OAuth2Session(
 )
 
 uipclient_config = Configuration()
-uipclient_config.host = f"https://cloud.uipath.com/{settings.UIP_LOGICAL_NAME}/{settings.UIP_TENANT}/orchestrator_"
+uipclient_config.host = settings.get_host()
 
 
 def FetchUIPathToken(uipclient_config=uipclient_config):
