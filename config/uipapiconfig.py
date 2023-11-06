@@ -21,7 +21,7 @@ def FetchUIPathToken(uipclient_config=uipclient_config):
         UIPathTokenResponse: Pydantic model with all the parameters from repsonse (access token, expiration)
     """
     logger.info("Refreshing token")
-    response = oauth2_session.fetch_token(url=settings.UIP_AUTH_TOKENURL, grant_type=settings.UIP_GRANT_TYPE)
+    response = oauth2_session.fetch_token(url=settings.get_auth_url(), grant_type=settings.UIP_GRANT_TYPE)
     tokenresponse = response.get("access_token")
     logger.debug(response)
     # We update the UIPConfig variable
